@@ -62,6 +62,21 @@ class AIMigrationPlanner:
             "rollback_plan": "Description",
             "risk_summary": "Description"
         }}
+
+        CONTEXT: VALID OPENREWRITE RECIPES (Use ONLY these or known valid ones)
+        
+        Version Migration:
+        - org.openrewrite.java.migrate.Java8toJava11
+        - org.openrewrite.java.migrate.UpgradeToJava17
+        - org.openrewrite.java.migrate.UpgradeToJava21
+
+        Cleanup & Refactoring:
+        - org.openrewrite.java.format.AutoFormat
+        - org.openrewrite.java.RemoveUnusedImports
+        - org.openrewrite.staticanalysis.RemoveUnusedPrivateFields
+        - org.openrewrite.staticanalysis.CommonStaticAnalysis
+        - org.openrewrite.java.cleanup.UnnecessaryCloseInTryWithResources
+        - org.openrewrite.java.cleanup.ExplicitInitialization
         """
 
     def _parse_response(self, response: str, report: AnalysisReport) -> MigrationPlan:

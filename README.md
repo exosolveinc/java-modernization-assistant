@@ -136,6 +136,16 @@ Migration of the included `GUI-based-Algorithm-Calculator` from Java 8 to 17.
   - `org.openrewrite.java.migrate.UpgradeToJava17`
   - `org.openrewrite.java.RemoveUnusedImports`
 
+## ⚠️ Known Limitations & Requirements
+
+For the tool to work effectively on **any** project, the following conditions must be met:
+
+1.  **Build System Required**: The project **must** be managed by **Maven** (`pom.xml`) or **Gradle** (`build.gradle`).
+    - _Why?_ OpenRewrite relies on the build tool's dependency graph to accurately resolve types.
+    - _Solution_: For legacy projects without build files, you must generate a basic `pom.xml` first (as we did for the Calculator example).
+2.  **Compilable Code**: The code must be compilable. If dependencies are missing, the tool may skip files or fail to apply transformations.
+3.  **Framework Support**: Standard recipes cover Java SE upgrades (8->17). Complex frameworks (Spring Boot 1.x, Struts, Java EE) require enabling specific framework recipes in the planner.
+
 ## 🏗 Architecture
 
 - **`src/analyzer`**: Wraps EMT4J CLI.
