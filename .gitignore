@@ -57,7 +57,8 @@ logs/
 
 # Generated Reports (Keep migration-plan.json versioned if desired, or ignore locally)
 # migration-plan.json # Commented out to allow versioning of plans
-analysis_report.json
+analysis-report.json
+migration-plan.json
 report.json
 diff-report.patch
 
